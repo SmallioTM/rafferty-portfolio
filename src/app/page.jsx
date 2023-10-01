@@ -1,10 +1,44 @@
-import Image from "next/image";
+"use client";
 
-export default function Home() {
+import "src/app/globals.css";
+
+import React, { useEffect } from "react";
+import { gsap } from "libs/gsap.js";
+import { ScrollTrigger } from "@/libs/ScrollTrigger.min.js";
+import { ScrollSmoother } from "@/libs/ScrollSmoother.min.js";
+import HeroSection from "@/components/HeroSection/HeroSection";
+import NavBar from "@/components/NavBar/NavBar";
+import AboutSection from "@/components/AboutSection/AboutSection.jsx";
+import LargeProjectSection from "@/components/LargeProjectSection/LargeProjectSection.jsx";
+
+gsap.registerPlugin(ScrollTrigger, ScrollSmoother);
+
+export default function Page() {
+  useEffect(() => {
+    // Normalize scroll
+    ScrollTrigger.normalizeScroll(true);
+
+    // Create the scroll smoother
+    let smoother = ScrollSmoother.create({
+      smooth: 1.6,
+      effects: true,
+      normalizeScroll: true,
+    });
+  }, []);
+
   return (
-    <main className="flex min-h-screen flex-col items-center justify-between p-24">
-      <div className="z-10 max-w-5xl w-full items-center justify-between font-mono text-sm lg:flex">
-        hello world
+    <main
+      id="smooth-wrapper"
+      className="overflow-hidden flex min-h-screen flex-col items-center justify-between p-24 bg-black"
+    >
+      <div
+        id="smooth-content"
+        className="overflow-hidden flex min-h-screen flex-col items-center"
+      >
+        <NavBar />
+        <HeroSection data-speed="1.2" />
+        <AboutSection />
+        <LargeProjectSection />
       </div>
     </main>
   );
