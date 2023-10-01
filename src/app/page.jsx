@@ -4,12 +4,12 @@ import "src/app/globals.css";
 
 import React, { useEffect } from "react";
 import { gsap } from "libs/gsap.js";
-import { ScrollTrigger } from "@/libs/ScrollTrigger.min.js";
-import { ScrollSmoother } from "@/libs/ScrollSmoother.min.js";
-import HeroSection from "@/components/HeroSection/HeroSection";
-import NavBar from "@/components/NavBar/NavBar";
-import AboutSection from "@/components/AboutSection/AboutSection.jsx";
-import LargeProjectSection from "@/components/LargeProjectSection/LargeProjectSection.jsx";
+import { ScrollTrigger } from "libs/ScrollTrigger.min.js";
+import { ScrollSmoother } from "libs/ScrollSmoother.min.js";
+import HeroSection from "src/app/components/HeroSection/HeroSection.jsx";
+import NavBar from "src/app/components/NavBar/NavBar.jsx";
+import AboutSection from "src/app/components/AboutSection/AboutSection.jsx";
+import LargeProjectSection from "src/app/components/LargeProjectSection/LargeProjectSection.jsx";
 
 gsap.registerPlugin(ScrollTrigger, ScrollSmoother);
 
