@@ -8,16 +8,16 @@ const NavBar = () => {
         <img className="w-[120px] h-[30] flex" src="/images/logo.png" />
       </div>
       <div className="w-[320px] h-16 flex justify-between items-center px-5">
-        <Link onClick={handleNavLinkClick} href="/" className="text-white">
+        <Link href="/" className="text-white">
           Home
         </Link>
-        <Link onClick={handleNavLinkClick} href="/about" className="text-white">
+        <Link href="/about" className="text-white">
           About
         </Link>
-        <Link onClick={handleNavLinkClick} href="#" className="text-white">
+        <Link href="#" className="text-white">
           Work
         </Link>
-        <Link onClick={handleNavLinkClick} href="#" className="text-white">
+        <Link href="#" className="text-white">
           Contact
         </Link>
       </div>
@@ -31,13 +31,13 @@ const NavBar = () => {
   );
 };
 
-const handleNavLinkClick = () => {
-  const tl = gsap.timeline();
-  tl.to(".blue-box", { duration: 0.5, height: "100vh" }).then(() => {
-    // Here, you can navigate to the desired page or do any other actions
-    // After the navigation or action, reverse the animation
-    tl.reverse();
-  });
-};
+// const handleNavLinkClick = () => {
+//   const tl = gsap.timeline();
+//   tl.to(".blue-box", { duration: 0.5, height: "100vh" }).then(() => {
+//     // Here, you can navigate to the desired page or do any other actions
+//     // After the navigation or action, reverse the animation
+//     tl.reverse();
+//   });
+// };
 
 export default NavBar;
