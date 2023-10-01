@@ -4,31 +4,22 @@ import "src/app/globals.css";
 
 import React, { useEffect } from "react";
 import { gsap } from "libs/gsap.js";
-import Lenis from "@studio-freight/lenis";
+import { ScrollTrigger } from "libs/ScrollTrigger.js";
+import { ScrollSmoother } from "libs/ScrollSmoother.min.js";
 import HeroSection from "src/app/components/HeroSection/HeroSection.jsx";
 import NavBar from "src/app/components/NavBar/NavBar.jsx";
 import AboutSection from "src/app/components/AboutSection/AboutSection.jsx";
+import LargeProjectSection from "src/app/components/LargeProjectSection/LargeProjectSection.jsx";
+
+gsap.registerPlugin(ScrollTrigger, ScrollSmoother);
 
 export default function Page() {
   useEffect(() => {
-    const lenis = new Lenis({
-      lerp: 0.1,
-      smooth: true,
-      direction: "vertical",
+    let smoother = ScrollSmoother.create({
+      smooth: 1.6,
+      effects: true,
+      normalizeScroll: true,
     });
-    window.lenis = lenis;
-
-    //get scroll value
-    lenis.on("scroll", ({ scroll, limit }) => {
-      console.log({ scroll, limit });
-    });
-
-    function raf() {
-      lenis.raf();
-      requestAnimationFrame(raf);
-    }
-
-    requestAnimationFrame(raf);
   }, []);
 
   return (
@@ -41,8 +32,9 @@ export default function Page() {
         className="overflow-hidden flex min-h-screen flex-col items-center"
       >
         <NavBar />
-        <HeroSection />
+        <HeroSection data-speed="1.2" />
         <AboutSection />
+        <LargeProjectSection />
       </div>
     </main>
   );
