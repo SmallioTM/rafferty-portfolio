@@ -27,7 +27,7 @@ body {
 }
 
 /* Lenis Recommended CSS */
-
+/* 
 html.lenis {
   height: auto;
 }
@@ -46,7 +46,7 @@ html.lenis {
 
 .lenis-scrolling iframe {
   pointer-events: none;
-}
+} */
 
 .blue-box {
   position: fixed;
